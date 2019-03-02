@@ -9,5 +9,9 @@ publish = false
 name = "character_input"
 path = "src/character_input.rs"
 
+[[bin]]
+name = "rps"
+path = "src/rps.rs"
+
 [dependencies]
 chrono = "0.4.6"
