@@ -1,0 +1,13 @@
+[package]
+name = "upgraded-waffle"
+version = "0.1.0"
+authors = ["Tim Medina <iamteem@gmail.com>"]
+edition = "2018"
+publish = false
+
+[[bin]]
+name = "character_input"
+path = "src/character_input.rs"
+
+[dependencies]
+chrono = "0.4.6"
