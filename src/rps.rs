@@ -31,10 +31,10 @@ trait RPSMoves {
 impl RPSMoves for String {
     fn to_rps(&self) -> Option<RPSMove> {
         match self.as_ref() {
-            "r" | "R" => { Some(Rock) },
-            "p" | "P" => { Some(Paper) },
-            "s" | "S" => { Some(Scissors) },
-            _ => { None }
+            "r" | "R" => Some(Rock),
+            "p" | "P" => Some(Paper),
+            "s" | "S" => Some(Scissors),
+            _ => None
         }
     }
 }
