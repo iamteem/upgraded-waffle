@@ -40,19 +40,24 @@ impl RPSMoves for String {
 }
 
 impl RPS {
-    fn start() {
-        let move_one = Self::player_move("Player One");
-        let move_two = Self::player_move("Player Two");
+    fn run() {
+        loop {
+            let move_one = Self::player_move("Player One");
+            let move_two = Self::player_move("Player Two");
 
-        if move_one == move_two {
-            println!("Draw")
-        } else if move_one > move_two {
-            println!("Player One wins!");
-        } else {
-            println!("Player Two wins!");
+            if move_one == move_two {
+                println!("Draw")
+            } else if move_one > move_two {
+                println!("Player One wins!");
+            } else {
+                println!("Player Two wins!");
+            }
+
+            if !Self::prompt_new_game() {
+                println!("GG");
+                break;
+            }
         }
-
-        Self::prompt_new_game()
     }
 
     fn player_move(name: &str) -> RPSMove  {
@@ -66,23 +71,17 @@ impl RPS {
         }
     }
 
-    fn prompt_new_game() {
+    fn prompt_new_game() -> bool {
         match input_yes_no("Another game? [y/n]: ") {
-            Ok(ans) => {
-                if ans {
-                    Self::start();
-                } else {
-                    println!("Come back next time!");
-                }
-            },
+            Ok(ans) => ans,
             Err(msg) => {
                 println!("{}", msg);
-                Self::prompt_new_game();
+                Self::prompt_new_game()
             }
         }
     }
 }
 
 fn main() {
-    RPS::start();
+    RPS::run();
 }
