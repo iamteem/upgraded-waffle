@@ -1,3 +1,7 @@
+mod input;
+
+use input::input;
+
 struct Person {
     name: String,
     age: u32
@@ -8,17 +12,6 @@ impl Person {
         use chrono::{Utc, Datelike};
         Utc::now().year() as u32 - self.age + 100
     }
-}
-
-fn input(prompt: &str) -> String {
-    use std::io::{self, Write};
-
-    print!("{}", prompt);
-    io::stdout().flush().unwrap();
-
-    let mut buffer = String::new();
-    io::stdin().read_line(&mut buffer).unwrap();
-    buffer.trim_end().to_string()
 }
 
 fn print_results(person: &Person) {
