@@ -13,5 +13,10 @@ path = "src/character_input.rs"
 name = "rps"
 path = "src/rps.rs"
 
+[[bin]]
+name = "pass_gen"
+path = "src/pass_gen.rs"
+
 [dependencies]
 chrono = "0.4.6"
+rand = "0.6.5"
